@@ -1,0 +1,68 @@
+Para iniciarlizar un proyecto vamos a utilizar vue.cli , para ello en nuestra terminal
+ejecutaremos el siguiente comando:
+
+-> vue init webpack-simple platzi-music
+
+Con este comando estamos creando nuestro poyecto con todas las librerias (basicas) que necesitamos
+para empezar.
+
+
+Para optimizar mejor el codigo usaremos el ESlint : https://eslint.org/
+
+Vamos a utilizar un presett de reglas para la estandarizacion de la escritura de nuestro codigo
+para ello utilizaremos standard JS : standardjs.com
+
+Para hacer la instalacion entramos aqui: https://github.com/standard/eslint-config-standard
+
+Proceso de instalacion:
+
+1. npm install eslint --save-dev
+2. npm install --save-dev eslint-config-standard eslint-plugin-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node
+3. Creamos un archivo: .eslintrc
+4. Una vez creado agregamos el siguiente codigo:
+{
+  "extends": "standard"
+}
+5. Finalmente para usarlo podemos configurarlo por cualquiera de las siguientes acciones:
+- Webpack (recomendado)
+- Plugin install editor
+- Por consola (menos recomendado)
+
+Vamos a instalar un plugin para nuestro ATOM
+https://eslint.org/docs/developer-guide/working-with-rules
+
+Nosotros podemos configurar o reescribir las reglas para no considerar algunas.
+Para ello escribimos en nuestro archivo eslintrc, si queremos saber mas reglas en la documentacion
+
+Ahora vamos a instalar en nuestro webpack para ello hacemos lo siguiente:
+
+npm i -D eslint-loader
+
+Ahora creamos una regla en nuestro webpack:
+rules:
+{
+  test : /\.(js|vue)$/,
+  loader: 'eslint-loader',
+  enforce: 'pre',
+  include: [path.resolve(__dirname),'./src']
+
+}
+
+Vamos a instalar el plugin : npm i -D eslint-plugin-html
+
+luego lo configuramos en nuestro archivo:
+
+"plugins": ["html"]
+
+
+
+USO DE BULMA CSS
+Es -S porque es una dependencia que lo vamos a querer en produccion
+Para instalar bulma escribimos el siguiente comando: npm i -S bulma
+Luego lo importamos en nuestro archivo main.sass
+@import '../../node_modules/bulma/bulma.sass'
+
+
+Instalacion de Pug
+
+npm i -D pug pug-loader
