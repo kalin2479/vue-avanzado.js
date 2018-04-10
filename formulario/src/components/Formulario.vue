@@ -43,7 +43,7 @@ export default {
       this.loading = true
       setTimeout(function () {
         console.log('hola')
-        console.log(self.arrdatos)
+        console.log(self.arrdatos.nombre)
         self.arrdatos = []
         self.loading = false
       }, 3000)
